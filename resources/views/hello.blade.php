@@ -8,12 +8,7 @@
                 <div class="card-header">Dashboard</div>
 
                 <div class="card-body">
-                    @foreach($posts as $post)
-                        <p>{{$post->title}}</p>
-                        @foreach($post->tag as $t)
-                        {{$t->name}}
-                        @endforeach
-                    @endforeach
+                    Hello
                 </div>
             </div>
         </div>
