@@ -14,9 +14,7 @@ use App\Video;
 use App\Post;
 use App\Comment;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'ImageController@album');
 
 Auth::routes();
 
@@ -55,3 +53,8 @@ Route::get('/contacts/{id}/edit', 'ContactController@edit')->name('contact.edit'
 Route::post('/contacts/{id}/store', 'ContactController@update')->name('contact.update');
 Route::get('/contacts/{id}', 'ContactController@show')->name('contact.show');
 Route::post('/contacts/{id}/delete', 'ContactController@destroy')->name('contact.destroy');
+
+Route::get('/album', 'ImageController@index');
+Route::post('/album', 'ImageController@store')->name('album.store');
+Route::get('/albums/{id}', 'ImageController@show');
+Route::post('image/delete', 'ImageController@destroy')->name('image.delete');
