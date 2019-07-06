@@ -2,10 +2,17 @@
 
 @section('content')
 
-<div class="container">
+
+<!-- Add images -->
+@include('fraction')
+
+<!-- end add images -->
+
     @if(Session::has('message'))
         <div class="alert alert-success">{{Session::get('message')}}</div>
     @endif
+
+    <div class="container">
     <h1>{{$albums->name}}({{$albums->images->count()}})</h1>
     <div class="row">
     @foreach($albums->images as $album)
@@ -55,37 +62,3 @@
 </div>
 
 @endsection
-
-<style>
-    .item {
-        left: 0;
-        top: 0;
-        position: relative;
-        overflow: hidden;
-        margin-top: 50px;
-    }
-
-    .item img {
-        -webkit-transition: 0.6s ease;
-        transition: 0.6s ease;
-    }
-
-    .item img:hover {
-        -webkit-transform: scale(1.2);
-        transform:scale(1.2);
-    }
-
-    .centered {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        color: #fff;
-        font-size: 24px;
-    }
-
-    .img-thumbnail {
-        border: 0px;
-        border-radius: 0px;
-    }
-</style>

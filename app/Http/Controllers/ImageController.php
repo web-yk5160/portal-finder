@@ -54,4 +54,22 @@ class ImageController extends Controller
          \Storage::delete('public/'.$filename);
          return redirect()->back()->with('message', 'Image deleted successfully!');
      }
+
+     public function addImage(Request $request){
+        $albumId = request('id');
+    	if($request->hasFile('image')){
+    		foreach($request->file('image') as $image){
+    			$path = $image->store('uploads','public');
+    			Image::create([
+    				'name'=> $path,
+    				'album_id'=>$albumId
+    			]);
+    		}
+    	}
+
+
+
+
+        return redirect()->back()->with('message', 'Image deleted successfully!');
+     }
 }
